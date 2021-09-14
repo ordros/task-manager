@@ -4,7 +4,7 @@ const outputPath = path.resolve(__dirname, 'dist');
 module.exports = {
   devtool: 'inline-source-map',
   mode: 'development',
-  entry: './index.js',
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     filename: 'bundle.js',
     path: outputPath
@@ -14,7 +14,7 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.js?$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
@@ -25,6 +25,21 @@ module.exports = {
           ],
         },
       },
-    }]
-  }
+    },
+    {
+      test: /\.tsx?$/,
+      use: {
+        loader: 'ts-loader',
+      }
+    }
+  ]
+  },
+  resolve: {
+    modules: ['node_modules'],
+    alias: {
+      '~': path.resolve(__dirname, './src'),
+    },
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+  },
+  target: ['web', 'es5'],
 }
