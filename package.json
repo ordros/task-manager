@@ -5,8 +5,10 @@
   "repository": "https://github.com/ordros/task-manager.git",
   "author": "ordros <reordros@gmail.com>",
   "license": "MIT",
+  "homepage": "https://ordros.github.io/task-manager",
   "scripts": {
-    "debug": "npx webpack-dev-server --open"
+    "debug": "npx webpack-dev-server --open",
+    "webpack": "webpack --mode development"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
