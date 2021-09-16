@@ -8,13 +8,21 @@
   "homepage": "https://ordros.github.io/task-manager",
   "scripts": {
     "debug": "npx webpack-dev-server --open",
-    "webpack": "webpack --mode development"
+    "webpack": "webpack --mode development",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "eslint": "npx eslint './{,!(node_modules)/**}/*.(tsx|js)'",
+    "gh-pages": "npx webpack --mode production && npx gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/plugin-transform-react-jsx": "^7.14.9",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "babel-loader": "^8.2.2",
@@ -32,6 +40,7 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
+    "@storybook/cli": "^6.3.8",
     "react": "^17.0.2",
     "react-dnd": "^14.0.3",
     "react-dnd-html5-backend": "^14.0.1",
