@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Circle = styled.div`
   width: 24px;
@@ -21,12 +21,11 @@ const Mark = styled.div`
   font-size: 20px;
 `;
 
-const DeleteButton = ({...remainProps}) => {
-  return (
-    <Circle {...remainProps}>
-      <Mark>🗑</Mark>
-    </Circle>
-  );
-};
+const DeleteButton = ({ ...remainProps }) => (
+  /* eslint-disable react/jsx-props-no-spreading */
+  <Circle {...remainProps}>
+    <Mark>🗑</Mark>
+  </Circle>
+);
 
 export default DeleteButton;

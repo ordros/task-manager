@@ -1,4 +1,5 @@
 const path = require('path');
+
 const outputPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
@@ -7,10 +8,10 @@ module.exports = {
   entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     filename: 'bundle.js',
-    path: outputPath
+    path: outputPath,
   },
   devServer: {
-    static: outputPath
+    static: outputPath,
   },
   module: {
     rules: [{
@@ -20,8 +21,8 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: [
-            "@babel/preset-env",
-            "@babel/react",
+            '@babel/preset-env',
+            '@babel/react',
           ],
         },
       },
@@ -30,9 +31,9 @@ module.exports = {
       test: /\.tsx?$/,
       use: {
         loader: 'ts-loader',
-      }
-    }
-  ]
+      },
+    },
+    ],
   },
   resolve: {
     modules: ['node_modules'],
@@ -42,4 +43,4 @@ module.exports = {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
   },
   target: ['web', 'es5'],
-}
+};

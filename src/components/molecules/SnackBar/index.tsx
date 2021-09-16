@@ -1,9 +1,10 @@
 import * as React from 'react';
-import styled, { css } from "styled-components";
-import { componentZIndexes } from '~/constants/styleConstants';
+import styled, { css } from 'styled-components';
+import componentZIndexes from '~/constants/styleConstants';
 
 type Props = {
-  message: string,
+  children: any,
+  message?: string,
   open: boolean,
   onClose: () => any,
   position?: {
@@ -19,7 +20,9 @@ const ContentWrapper = styled.div`
   z-index: ${componentZIndexes.snackbar};
   transition: all 0.5s;
 
-  ${({horizontal, vertical, open, animation}) => {
+  ${({
+    horizontal, vertical, open, animation,
+  }) => {
     let styles = '';
     switch (horizontal) {
       case 'left':
@@ -108,7 +111,7 @@ const Snackbar: React.FC<Props> = ({
   autoHideDuration,
 }) => {
   const [open, setOpen] = React.useState(parentOpenState);
-  
+
   React.useEffect(() => {
     setOpen(parentOpenState);
     if (!parentOpenState) {
@@ -119,7 +122,7 @@ const Snackbar: React.FC<Props> = ({
         setOpen(false);
         onClose();
       }, autoHideDuration);
-    }  
+    }
   }, [parentOpenState]);
 
   let element;
@@ -132,7 +135,7 @@ const Snackbar: React.FC<Props> = ({
   } else {
     element = children;
   }
-  
+
   return (
     <ContentWrapper
       vertical={position?.vertical}
@@ -142,7 +145,7 @@ const Snackbar: React.FC<Props> = ({
     >
       {element}
     </ContentWrapper>
-   );
+  );
 };
 
 export default Snackbar;

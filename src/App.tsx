@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import styled from 'styled-components';
 import DeleteButton from '~/components/DeleteButton';
 import TSTestComponent from '~/components/TSTestComponent';
-import Snackbar from './components/molecules/SnackBar';
-import styled from "styled-components";
-
+import Snackbar from '~/components/molecules/SnackBar';
 
 const Alert = styled.div`
   width: 240px;

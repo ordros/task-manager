@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import Snackbar from '.';
 
 export default {
@@ -21,7 +21,7 @@ const Alert = styled.div`
 
 export const snackbar = () => (
   <Snackbar
-    open={true}
+    open={false}
     onClose={() => null}
     position={{ vertical: 'bottom', horizontal: 'left' }}
     animation="left-to-right"
