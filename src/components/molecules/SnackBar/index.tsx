@@ -23,6 +23,7 @@ const ContentWrapper = styled.div`
   position: fixed;
   z-index: ${componentZIndexes.snackbar};
   transition: all 0.5s;
+  display: inline-table;
 
   ${({
     horizontal, vertical, open, animation,
@@ -67,19 +68,19 @@ const ContentWrapper = styled.div`
       switch (animation) {
         case 'right-to-left':
           styles += css`
-            right: -100%;
+            right: -50%;
             left: 100%;
           `;
           break;
         case 'left-to-right':
           styles += css`
-            right: 50%;
+            right: 100%;
             left: -50%;
           `;
           break;
         case 'top-to-bottom':
           styles += css`
-            top: -100%;
+            top: -50%;
             bottom: 100%;
           `;
           break;
@@ -87,9 +88,12 @@ const ContentWrapper = styled.div`
         case 'bottom-to-top':
           styles += css`
             // top: 100%;
-            bottom: -100%;
+            bottom: -50%;
           `;
       }
+      styles += css`opacity: 0`;
+    } else {
+      styles += css`opacity: 1`;
     }
     return styles;
   }}
