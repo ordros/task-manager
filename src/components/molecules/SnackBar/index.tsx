@@ -2,16 +2,20 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 import componentZIndexes from '~/constants/styleConstants';
 
+export type SnackBarVerticalPosition = 'top' | 'bottom';
+export type SnackBarHorizontalPosition = 'left' | 'middle' | 'right';
+export type SnackBarAnimationDirection = 'right-to-left' | 'left-to-right' | 'bottom-to-top' | 'top-to-bottom';
+
 type Props = {
   children: any,
   message?: string,
   open: boolean,
   onClose: () => any,
   position?: {
-    vertical?: 'top' | 'bottom',
-    horizontal?: 'left' | 'middle' | 'right',
+    vertical?: SnackBarVerticalPosition,
+    horizontal?: SnackBarHorizontalPosition,
   },
-  animation?: 'right-to-left' | 'left-to-right' | 'bottom-to-top' | 'top-to-bottom',
+  animation?: SnackBarAnimationDirection,
   autoHideDuration?: number,
 };
 
@@ -104,7 +108,10 @@ const DefaultContent = styled.div`
 const Snackbar: React.FC<Props> = ({
   children,
   message,
-  position,
+  position = {
+    vertical: 'bottom',
+    horizontal: 'left',
+  },
   animation = 'bottom-to-top',
   open: parentOpenState,
   onClose,
