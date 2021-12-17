@@ -13,7 +13,8 @@
     "build-storybook": "build-storybook",
     "eslint": "eslint src/**/*.[jt]s*",
     "eslint:fix": "eslint src/**/*.[jt]s* --fix",
-    "gh-pages": "npx webpack --mode production && npx gh-pages -d dist"
+    "gh-pages": "npx webpack --mode production && npx gh-pages -d dist",
+    "gh-pages:storybook": "build-storybook && npx gh-pages -d storybook-static"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
